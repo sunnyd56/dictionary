@@ -11,12 +11,11 @@ protocol DictionaryManagerDelegate{
     func didFailWithError(error:Error)
 }
 struct DictionaryManager{
-    //let appId = "9473a6d3"
-    //let appKey = "8539de0a23591f90c807ee900a2bb79b"
+
     //let dictionaryURL = "https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/"
     let dictionaryURL = "https://wordsapiv1.p.rapidapi.com/words/"
     let headers = [
-        "x-rapidapi-key": "473e5b3ec0mshe51f0ccaa481649p1e38f7jsn15e73bacbd4b",
+        "x-rapidapi-key": "your key",
         "x-rapidapi-host": "wordsapiv1.p.rapidapi.com"
     ]
     var delegate: DictionaryManagerDelegate?
