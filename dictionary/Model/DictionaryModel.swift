@@ -10,9 +10,5 @@ struct DictionaryModel{
     let define: [String]
     let name: String
     let partOfSpeech : [String]
-    //let examples: String
-    //let synonyms:[Int:String]
     let pronunciation:String
-    //let etymology: String
-    //let audioURL:String
 }

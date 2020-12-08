@@ -12,7 +12,6 @@ protocol DictionaryManagerDelegate{
 }
 struct DictionaryManager{
 
-    //let dictionaryURL = "https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/"
     let dictionaryURL = "https://wordsapiv1.p.rapidapi.com/words/"
     let headers = [
         "x-rapidapi-key": "your key",
@@ -20,18 +19,10 @@ struct DictionaryManager{
     ]
     var delegate: DictionaryManagerDelegate?
     func fetchWord(searchWord: String){
-        //let definitionString = "\(dictionaryURL)\(searchWord)?strictMatch=false"
         let definitionString = "\(dictionaryURL)\(searchWord)"
-        //let etymologyString = "\(dictionaryURL)\(searchWord)?fields=etymologies&strictMatch=false"
         performRequest(with: definitionString)
-        //performRequest(urlString: etymologyString)
     }
     func performRequest(with urlString:String){
-        //let url = URL(string: urlString)!
-        //var request = URLRequest(url: url)
-        //request.addValue("application/json", forHTTPHeaderField: "Accept")
-        //request.addValue(appId, forHTTPHeaderField: "app_id")
-        //request.addValue(appKey, forHTTPHeaderField: "app_key")
         let request = NSMutableURLRequest(url: NSURL(string:urlString)! as URL,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
@@ -74,28 +65,3 @@ struct DictionaryManager{
         
     }
 }
-//let appId = "<my_app_id>"
-//    let appKey = "<my_app_key>"
-//    let language = "en-gb"
-//    let word = "Ace"
-//    let fields = "pronunciations"
-//    let strictMatch = "false"
-//    let word_id = word.lowercased()
-//    let url = URL(string: "https://od-api.oxforddictionaries.com:443/api/v2/entries/\(language)/\(word_id)?fields=\(fields)&strictMatch=\(strictMatch)")!
-//    var request = URLRequest(url: url)
-//    request.addValue("application/json", forHTTPHeaderField: "Accept")
-//    request.addValue(appId, forHTTPHeaderField: "app_id")
-//    request.addValue(appKey, forHTTPHeaderField: "app_key")
-//
-//    let session = URLSession.shared
-//    _ = session.dataTask(with: request, completionHandler: { data, response, error in
-//        if let response = response,
-//            let data = data,
-//            let jsonData = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
-//            print(response)
-//            print(jsonData)
-//        } else {
-//            print(error)
-//            print(NSString.init(data: data!, encoding: String.Encoding.utf8.rawValue))
-//        }
-//    }).resume()
